@@ -46,14 +46,14 @@ def mainProcess(shouldDelete):
 
 		enviaEmail(mailBody)
 	else:
-		print 'Nao ha issues a processar'
+		print u'Nao há issues a processar'
 
 
 def api(url):
 
 	headers = {
-        'Authorization' : 'token '+ os.environ.get('SENDGRID_API_KEY')
-        'Accept'        : 'application/vnd.github.inertia-preview+json'
+		'Authorization' : 'token ' + str(os.environ.get('GITHUB_API_TOKEN')),
+		'Accept'        : 'application/vnd.github.inertia-preview+json'
     }
 	r = requests.get(url, headers=headers)
 	return r
